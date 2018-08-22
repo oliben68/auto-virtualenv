@@ -2,7 +2,7 @@
 
 Small script allowing the auto-activation of a python virtual environment upon cd into a directory.
 
-*Installation*:
+## Installation: ##
 After cloning the project, add the following line to your .bash_profile:
 
 `source [auto-virtualenv clone directory]\commands.sh`
@@ -44,6 +44,6 @@ and **B\.virtenv** as follow:
 
 If you cd into **A** auto-virtualenv will activate the **vanilla** virtual environment but if you cd into  **B** or **C** auto-virtualenv will deactivate any virtual environment.
 
-*Note*:
+## Note : ##
 If you want to disable auto-virtualenv, just run the following command:
 `export DISABLE_AUTO_VIRTUALENV=true`
