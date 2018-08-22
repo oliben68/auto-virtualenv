@@ -43,3 +43,7 @@ and **B\.virtenv** as follow:
 `##MANUAL##`
 
 If you cd into **A** auto-virtualenv will activate the **vanilla** virtual environment but if you cd into  **B** or **C** auto-virtualenv will deactivate any virtual environment.
+
+*Note*:
+If you want to disable auto-virtualenv, just run the following command:
+`export DISABLE_AUTO_VIRTUALENV=true`
