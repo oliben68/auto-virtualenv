@@ -3,7 +3,12 @@
 function cd {	
 	builtin cd "$@"
 
-	if [ "${DISABLE_AUTO_VIRTUALENV}" != "true" ]; then 
+	if [ "${DISABLE_AUTO_VIRTUALENV}" != "true" ]; then
+		output="/dev/null"
+		if [ "${VERBOSE_AUTO_VIRTUALENV}" == "true" ]; then
+			output="/dev/stdout"
+		fi
+		
 		blocker="##MANUAL##"
 		virtenv_file=".virtenv"
 		curr_path=$(pwd)
@@ -30,11 +35,11 @@ function cd {
 			evrn=${evrn[0]}
 			if [ "${evrn}" ]; then
 				if [[ ${evrn} != ${blocker} && "${evrn}" != "${prompt_modifier}" ]]; then
-					echo "[activating virtual env. \"${evrn}\"...]"
+					echo "[activating virtual env. \"${evrn}\"...]" > ${output}
 					source activate ${evrn}
 				else
 					if [[ ${evrn} != ${blocker} && "${evrn}" == "${prompt_modifier}" ]]; then
-						echo "[keeping virtual env. \"${evrn}\" active...]"
+						echo "[keeping virtual env. \"${evrn}\" active...]" > ${output}
 					else
 						deactivating="true"
 					fi
@@ -45,7 +50,7 @@ function cd {
 		fi
 	
 		if [[ "${deactivating}" == "true" && "${prompt_modifier}" ]]; then
-			echo "[deactivating virtual env. \"${prompt_modifier}\"...]"
+			echo "[deactivating virtual env. \"${prompt_modifier}\"...]" > ${output}
 			source deactivate
 		fi
 	fi
