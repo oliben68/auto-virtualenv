@@ -1,7 +1,6 @@
 # auto-virtualenv
 
-Small script allowing the auto-activation of a python virtual environment upon cd into a directory.
-
+Small script allowing the auto-activation of a python virtual environment (!) upon cd into a directory.
 ## Installation: ##
 After cloning the project, add the following line to your .bash_profile:
 
@@ -52,3 +51,7 @@ To disable auto-virtualenv system-wide, just run the following command:
 If you want to disable auto-virtualenv outputs, just run the following command:
 
 `export VERBOSE_AUTO_VIRTUALENV=false`
+
+
+
+! _This script is only compatible with Anaconda._
