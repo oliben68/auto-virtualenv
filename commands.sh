@@ -36,7 +36,7 @@ function cd {
 			if [ "${evrn}" ]; then
 				if [[ ${evrn} != ${blocker} && "${evrn}" != "${prompt_modifier}" ]]; then
 					echo "[activating virtual env. \"${evrn}\"...]" > ${output}
-					source activate ${evrn}
+					conda activate ${evrn}
 				else
 					if [[ ${evrn} != ${blocker} && "${evrn}" == "${prompt_modifier}" ]]; then
 						echo "[keeping virtual env. \"${evrn}\" active...]" > ${output}
@@ -51,7 +51,7 @@ function cd {
 	
 		if [[ "${deactivating}" == "true" && "${prompt_modifier}" ]]; then
 			echo "[deactivating virtual env. \"${prompt_modifier}\"...]" > ${output}
-			source deactivate
+			conda deactivate
 		fi
 	fi
 }
